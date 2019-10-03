@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -386,7 +386,7 @@
 		C9EBAB2F230D736A00A20F0F /* AppCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9EBAB2E230D736A00A20F0F /* AppCenter.framework */; };
 		C9EBAB31230D736F00A20F0F /* AppCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9EBAB30230D736F00A20F0F /* AppCenter.framework */; };
 		DFEB98292318FAF400AE88C1 /* libCrashReporter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DFEB98282318FAF400AE88C1 /* libCrashReporter.a */; };
-		DFEB98332318FF5500AE88C1 /* libCrashReporter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DFEB98262318F90400AE88C1 /* libCrashReporter.a */; };
+		DFEB98332318FF5500AE88C1 /* libCrashReporter-MacCatalyst-Static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DFEB98262318F90400AE88C1 /* libCrashReporter-MacCatalyst-Static.a */; platformFilter = maccatalyst; };
 		F82E4C75217F1FD700EDAB34 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = F82E4C74217F1FD600EDAB34 /* sqlite3.c */; settings = {COMPILER_FLAGS = "-w"; }; };
 		F82E4C76217F1FD700EDAB34 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = F82E4C74217F1FD600EDAB34 /* sqlite3.c */; settings = {COMPILER_FLAGS = "-w"; }; };
 		F82E4C77217F1FD700EDAB34 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = F82E4C74217F1FD600EDAB34 /* sqlite3.c */; settings = {COMPILER_FLAGS = "-w"; }; };
@@ -409,6 +409,7 @@
 		F859D1141E549B45008B2D8E /* live_report_undefined_instr.plcrash in Resources */ = {isa = PBXBuildFile; fileRef = F859D1031E549B45008B2D8E /* live_report_undefined_instr.plcrash */; };
 		F859D1151E549B45008B2D8E /* live_report_write_readonly.plcrash in Resources */ = {isa = PBXBuildFile; fileRef = F859D1041E549B45008B2D8E /* live_report_write_readonly.plcrash */; };
 		F8DD752D230D89F800B095B6 /* libCrashReporter-MacOSX-Static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 049327B11ECA19FD00D0187A /* libCrashReporter-MacOSX-Static.a */; };
+		FBAAF3392345F4BE007AC2A7 /* libCrashReporter-iOS-Static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBAAF3382345F4BE007AC2A7 /* libCrashReporter-iOS-Static.a */; platformFilter = ios; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -664,7 +665,7 @@
 		DFEB98232318F56B00AE88C1 /* PLCrashReportFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLCrashReportFormatter.h; sourceTree = "<group>"; };
 		DFEB98242318F56B00AE88C1 /* PLCrashReportProcessInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLCrashReportProcessInfo.h; sourceTree = "<group>"; };
 		DFEB98252318F56B00AE88C1 /* PLCrashReportSymbolInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLCrashReportSymbolInfo.h; sourceTree = "<group>"; };
-		DFEB98262318F90400AE88C1 /* libCrashReporter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCrashReporter.a; sourceTree = "<group>"; };
+		DFEB98262318F90400AE88C1 /* libCrashReporter-MacCatalyst-Static.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libCrashReporter-MacCatalyst-Static.a"; sourceTree = "<group>"; };
 		DFEB98282318FAF400AE88C1 /* libCrashReporter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCrashReporter.a; sourceTree = "<group>"; };
 		F82E4C74217F1FD600EDAB34 /* sqlite3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = sqlite3.c; path = ../../Vendor/SQLite3/sqlite3.c; sourceTree = "<group>"; };
 		F851DAEC1E81867D00525570 /* MSCrashesCXXExceptionTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MSCrashesCXXExceptionTests.mm; sourceTree = "<group>"; };
@@ -686,6 +687,7 @@
 		F859D1031E549B45008B2D8E /* live_report_undefined_instr.plcrash */ = {isa = PBXFileReference; lastKnownFileType = file; path = live_report_undefined_instr.plcrash; sourceTree = "<group>"; };
 		F859D1041E549B45008B2D8E /* live_report_write_readonly.plcrash */ = {isa = PBXFileReference; lastKnownFileType = file; path = live_report_write_readonly.plcrash; sourceTree = "<group>"; };
 		F8DD7527230D7EC400B095B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FBAAF3382345F4BE007AC2A7 /* libCrashReporter-iOS-Static.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libCrashReporter-iOS-Static.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -726,8 +728,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DFEB98332318FF5500AE88C1 /* libCrashReporter.a in Frameworks */,
+				DFEB98332318FF5500AE88C1 /* libCrashReporter-MacCatalyst-Static.a in Frameworks */,
 				C9EBAB2D230D735E00A20F0F /* AppCenter.framework in Frameworks */,
+				FBAAF3392345F4BE007AC2A7 /* libCrashReporter-iOS-Static.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1150,7 +1153,8 @@
 			isa = PBXGroup;
 			children = (
 				DFEB980E2318F56B00AE88C1 /* CrashReporter */,
-				DFEB98262318F90400AE88C1 /* libCrashReporter.a */,
+				FBAAF3382345F4BE007AC2A7 /* libCrashReporter-iOS-Static.a */,
+				DFEB98262318F90400AE88C1 /* libCrashReporter-MacCatalyst-Static.a */,
 			);
 			name = PLCrashReporter;
 			path = ../Vendor/iOS/PLCrashReporter;

@@ -1,3 +1,7 @@
 PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.appcenter.crashes
 
 OTHER_LDFLAGS = $(inherited) -framework Foundation -lc++ -lz
+
+GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO
+
+CLANG_ENABLE_CODE_COVERAGE = NO
