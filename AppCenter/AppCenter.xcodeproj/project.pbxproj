@@ -76,6 +76,17 @@
 			name = "AppCenter iOS Documentation";
 			productName = "Jazzy Docs";
 		};
+		FBAAF34423460437007AC2A7 /* AppCenter iOS XC Framework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = FBAAF34623460437007AC2A7 /* Build configuration list for PBXAggregateTarget "AppCenter iOS XC Framework" */;
+			buildPhases = (
+				FBAAF34523460437007AC2A7 /* Build XC Framework */,
+			);
+			dependencies = (
+			);
+			name = "AppCenter iOS XC Framework";
+			productName = "Fat Framework";
+		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
@@ -2456,6 +2467,7 @@
 				C9A91FB5230C01140068070D /* AppCenter iOS Framework */,
 				6E2395771D22EF4F00E543C8 /* AppCenter iOS Tests */,
 				6E04017D1D1CAC710051BCFA /* AppCenter iOS Fat Framework */,
+				FBAAF34423460437007AC2A7 /* AppCenter iOS XC Framework */,
 				6E6BFC311D234FAE00DF7617 /* AppCenter iOS Documentation */,
 				C9A91FFE230C05D70068070D /* AppCenter macOS Framework */,
 				046AEACF1ECA562A00CBE511 /* AppCenter macOS Tests */,
@@ -2638,6 +2650,21 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/../Scripts/VerifyNoBuildSettings.swift\" ${PROJECT_NAME}.xcodeproj/project.pbxproj\n";
 			showEnvVarsInLog = 0;
+		};
+		FBAAF34523460437007AC2A7 /* Build XC Framework */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"",
+			);
+			name = "Build XC Framework";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"${SRCROOT}/../Scripts/AppCenter\"\n./build-appcenter-ios-xcframework.sh\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -3286,6 +3313,22 @@
 			};
 			name = Release;
 		};
+		FBAAF34723460437007AC2A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 049BC8281ECE3A5200FB6719 /* iOS.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = "AppCenter iOS Fat Framework copy2-Info.plist";
+			};
+			name = Debug;
+		};
+		FBAAF34823460437007AC2A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 049BC8281ECE3A5200FB6719 /* iOS.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = "AppCenter iOS Fat Framework copy2-Info.plist";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -3402,6 +3445,15 @@
 			buildConfigurations = (
 				C9A92022230C07A50068070D /* Debug */,
 				C9A92023230C07A50068070D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FBAAF34623460437007AC2A7 /* Build configuration list for PBXAggregateTarget "AppCenter iOS XC Framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBAAF34723460437007AC2A7 /* Debug */,
+				FBAAF34823460437007AC2A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

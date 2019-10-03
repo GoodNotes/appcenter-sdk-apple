@@ -76,6 +76,17 @@
 			name = "AppCenterCrashes iOS Documentation";
 			productName = "Jazzy Docs";
 		};
+		FBAAF34A2346048F007AC2A7 /* AppCenterCrashes iOS XC Framework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = FBAAF34C2346048F007AC2A7 /* Build configuration list for PBXAggregateTarget "AppCenterCrashes iOS XC Framework" */;
+			buildPhases = (
+				FBAAF34B2346048F007AC2A7 /* Build Universal Framework */,
+			);
+			dependencies = (
+			);
+			name = "AppCenterCrashes iOS XC Framework";
+			productName = "Fat Framework";
+		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
@@ -385,7 +396,6 @@
 		C9EBAB2D230D735E00A20F0F /* AppCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9EBAB2C230D735E00A20F0F /* AppCenter.framework */; };
 		C9EBAB2F230D736A00A20F0F /* AppCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9EBAB2E230D736A00A20F0F /* AppCenter.framework */; };
 		C9EBAB31230D736F00A20F0F /* AppCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9EBAB30230D736F00A20F0F /* AppCenter.framework */; };
-		DFEB98292318FAF400AE88C1 /* libCrashReporter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DFEB98282318FAF400AE88C1 /* libCrashReporter.a */; };
 		DFEB98332318FF5500AE88C1 /* libCrashReporter-MacCatalyst-Static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DFEB98262318F90400AE88C1 /* libCrashReporter-MacCatalyst-Static.a */; platformFilter = maccatalyst; };
 		F82E4C75217F1FD700EDAB34 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = F82E4C74217F1FD600EDAB34 /* sqlite3.c */; settings = {COMPILER_FLAGS = "-w"; }; };
 		F82E4C76217F1FD700EDAB34 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = F82E4C74217F1FD600EDAB34 /* sqlite3.c */; settings = {COMPILER_FLAGS = "-w"; }; };
@@ -410,6 +420,7 @@
 		F859D1151E549B45008B2D8E /* live_report_write_readonly.plcrash in Resources */ = {isa = PBXBuildFile; fileRef = F859D1041E549B45008B2D8E /* live_report_write_readonly.plcrash */; };
 		F8DD752D230D89F800B095B6 /* libCrashReporter-MacOSX-Static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 049327B11ECA19FD00D0187A /* libCrashReporter-MacOSX-Static.a */; };
 		FBAAF3392345F4BE007AC2A7 /* libCrashReporter-iOS-Static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBAAF3382345F4BE007AC2A7 /* libCrashReporter-iOS-Static.a */; platformFilter = ios; };
+		FBAAF35123460C6E007AC2A7 /* libCrashReporter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DFEB98282318FAF400AE88C1 /* libCrashReporter.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -728,8 +739,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DFEB98332318FF5500AE88C1 /* libCrashReporter-MacCatalyst-Static.a in Frameworks */,
 				C9EBAB2D230D735E00A20F0F /* AppCenter.framework in Frameworks */,
+				DFEB98332318FF5500AE88C1 /* libCrashReporter-MacCatalyst-Static.a in Frameworks */,
 				FBAAF3392345F4BE007AC2A7 /* libCrashReporter-iOS-Static.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -738,8 +749,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DFEB98292318FAF400AE88C1 /* libCrashReporter.a in Frameworks */,
 				C9EBAB2F230D736A00A20F0F /* AppCenter.framework in Frameworks */,
+				FBAAF35123460C6E007AC2A7 /* libCrashReporter.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1564,6 +1575,7 @@
 				C9A91F49230BFD930068070D /* AppCenterCrashes iOS Framework */,
 				6E171AE01D22F781000DC480 /* AppCenterCrashes iOS Tests */,
 				6E3729771D1DE83200F1E4AE /* AppCenterCrashes iOS Fat Framework */,
+				FBAAF34A2346048F007AC2A7 /* AppCenterCrashes iOS XC Framework */,
 				6E6BFC361D23504F00DF7617 /* AppCenterCrashes iOS Documentation */,
 				C9A91F5D230BFDB70068070D /* AppCenterCrashes macOS Framework */,
 				049327611ECA170D00D0187A /* AppCenterCrashes macOS Tests */,
@@ -1841,6 +1853,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/../Scripts/VerifyNoBuildSettings.swift\" ${PROJECT_NAME}.xcodeproj/project.pbxproj\n";
 			showEnvVarsInLog = 0;
+		};
+		FBAAF34B2346048F007AC2A7 /* Build Universal Framework */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build Universal Framework";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"${SRCROOT}/../Scripts/AppCenterCrashes\"\n./build-appcentercrashes-ios-xcframework.sh\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -2216,6 +2242,22 @@
 			};
 			name = Release;
 		};
+		FBAAF34D2346048F007AC2A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 049BC8251ECE36D400FB6719 /* iOS.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = "AppCenterCrashes iOS Fat Framework copy-Info.plist";
+			};
+			name = Debug;
+		};
+		FBAAF34E2346048F007AC2A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 049BC8251ECE36D400FB6719 /* iOS.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = "AppCenterCrashes iOS Fat Framework copy-Info.plist";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2332,6 +2374,15 @@
 			buildConfigurations = (
 				C9A91F64230BFDB70068070D /* Debug */,
 				C9A91F65230BFDB70068070D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FBAAF34C2346048F007AC2A7 /* Build configuration list for PBXAggregateTarget "AppCenterCrashes iOS XC Framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBAAF34D2346048F007AC2A7 /* Debug */,
+				FBAAF34E2346048F007AC2A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
