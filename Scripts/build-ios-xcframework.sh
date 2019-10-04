@@ -14,7 +14,6 @@ fi
 
 # Sets the target folders and the final framework product.
 TARGET_NAME="${PROJECT_NAME} iOS Framework"
-RESOURCE_BUNDLE="${PROJECT_NAME}Resources"
 
 echo "Building ${TARGET_NAME}."
 
@@ -24,9 +23,9 @@ PRODUCTS_DIR="${SRCROOT}/../AppCenter-SDK-Apple/iOS"
 
 # Working dir will be deleted after the framework creation.
 WORK_DIR=build
-DEVICE_DIR="${WORK_DIR}/Release-iphoneos/"
-SIMULATOR_DIR="${WORK_DIR}/Release-iphonesimulator/"
-CATALYST_DIR="${WORK_DIR}/Release/"
+DEVICE_DIR="${WORK_DIR}/iphoneos.xcarchive"
+SIMULATOR_DIR="${WORK_DIR}/iphonesimulator.xcarchive"
+CATALYST_DIR="${WORK_DIR}/maccatalyst.xcarchive"
 
 # Make sure we're inside $SRCROOT.
 cd "${SRCROOT}"
@@ -35,9 +34,9 @@ cd "${SRCROOT}"
 xcodebuild -project "${PROJECT_NAME}.xcodeproj" -configuration "Release" -target "${TARGET_NAME}" clean 
 
 # Building all architectures.
-xcodebuild -project "${PROJECT_NAME}.xcodeproj" -configuration "Release" -target "${TARGET_NAME}" -sdk iphoneos
-xcodebuild -project "${PROJECT_NAME}.xcodeproj" -configuration "Release" -target "${TARGET_NAME}" -sdk iphonesimulator
-xcodebuild -project "${PROJECT_NAME}.xcodeproj" -configuration "Release" -target "${TARGET_NAME}" -sdk macosx
+xcodebuild archive -scheme "${TARGET_NAME}" -archivePath "${DEVICE_DIR}" -sdk iphoneos SKIP_INSTALL=NO BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
+xcodebuild archive -scheme "${TARGET_NAME}" -archivePath "${SIMULATOR_DIR}" -sdk iphonesimulator SKIP_INSTALL=NO BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
+xcodebuild archive -scheme "${TARGET_NAME}" -archivePath "${CATALYST_DIR}" -destination 'platform=macOS,arch=x86_64,variant=Mac Catalyst' SKIP_INSTALL=NO BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
 
 # Cleaning the previous build.
 if [ -d "${PRODUCTS_DIR}/${PROJECT_NAME}.xcframework" ]; then
@@ -49,9 +48,9 @@ mkdir -p "${PRODUCTS_DIR}"
 
 # Create xcframework from build directory
 xcodebuild -create-xcframework \
--framework "${DEVICE_DIR}/${PROJECT_NAME}.framework" \
--framework "${SIMULATOR_DIR}/${PROJECT_NAME}.framework" \
--framework "${CATALYST_DIR}/${PROJECT_NAME}.framework" \
+-framework "${DEVICE_DIR}/Products/Library/Frameworks/${PROJECT_NAME}.framework" \
+-framework "${SIMULATOR_DIR}/Products/Library/Frameworks/${PROJECT_NAME}.framework" \
+-framework "${CATALYST_DIR}/Products/Library/Frameworks/${PROJECT_NAME}.framework" \
 -output "${PRODUCTS_DIR}/${PROJECT_NAME}.xcframework"
 
 open "${PRODUCTS_DIR}"
